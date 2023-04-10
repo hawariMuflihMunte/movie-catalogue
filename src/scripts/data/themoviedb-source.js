@@ -15,7 +15,7 @@ class TheMovieDbSource {
 
   static async detailMovie (id) {
     const response = await fetch(API_ENDPOINT.DETAIL(id))
-    return response.results
+    return response.json()
   }
 }
 
