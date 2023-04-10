@@ -11,9 +11,6 @@ const NowPlaying = {
   },
   async afterRender () {
     const movies = await TheMovieDbSource.nowPlayingMovies()
-    console.log(movies)
-
-    // TODO: tampilkan movies di dalam DOM
   }
 }
 
