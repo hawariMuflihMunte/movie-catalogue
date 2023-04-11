@@ -1,3 +1,5 @@
+import CONFIG from '../globals/config'
+
 const CacheHelper = {
   async cachingAppShell (requests) {
     const cache = await this._openCache()
@@ -6,7 +8,7 @@ const CacheHelper = {
   async deleteOldCache () {
     const cacheNames = await caches.keys()
     cacheNames
-      .filter((name) => name !== 'MovieCatalogue-V1')
+      .filter((name) => name !== CONFIG.CACHE_NAME)
       .map((filteredName) => caches.delete(filteredName))
   },
   async revalidateCache (request) {
@@ -20,7 +22,7 @@ const CacheHelper = {
     return this._fetchRequest(request)
   },
   async _openCache () {
-    return caches.open('MovieCatalogue-V1')
+    return caches.open(CONFIG.CACHE_NAME)
   },
   async _fetchRequest (request) {
     const response = await fetch(request)
