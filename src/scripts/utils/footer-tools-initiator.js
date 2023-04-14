@@ -23,7 +23,9 @@ const FooterToolsInitiator = {
       this._unsubscribePushMessage(event)
     })
   },
-  async _initialState () {},
+  async _initialState () {
+    this._showSubscribeButton()
+  },
   async _subscribePushMessage (event) {
     event.stopPropagation()
 
@@ -56,6 +58,8 @@ const FooterToolsInitiator = {
       // Undo subscribing push notification
       await pushSubscription?.unsubscribe()
     }
+
+    this._showSubscribeButton()
   },
   async _unsubscribeButton (event) {
     event.stopPropagation()
@@ -79,6 +83,8 @@ const FooterToolsInitiator = {
     } catch (error) {
       console.error('Failed to erase push notification data from server: ', error.message)
     }
+
+    this._showSubscribeButton()
   },
   _urlB64ToUint8Array: (base64String) => {
     const padding = '='.repeat((4 - base64String.length % 4) % 4)
@@ -146,6 +152,11 @@ const FooterToolsInitiator = {
     }
 
     return true
+  },
+  async _showSubscribeButton () {
+    this._isSubscribedToServerForHiddenSubscribeButton(
+      await this._isCurrentSubscriptionAvailable()
+    )
   }
 }
 
