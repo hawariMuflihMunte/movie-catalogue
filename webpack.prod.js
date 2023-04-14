@@ -1,5 +1,7 @@
+const path = require('path')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -19,5 +21,11 @@ module.exports = merge(common, {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new WorkboxWebpackPlugin.InjectManifest({
+      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+      swDest: './sw.bundle.js'
+    })
+  ]
 })
