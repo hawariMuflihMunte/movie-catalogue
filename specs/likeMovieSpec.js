@@ -76,7 +76,7 @@ describe('Liking A Movie', () => {
   })
 
   // Menggunakan metode xit, bukan it
-  xit('Should not add a movie when it has no id', async () => {
+  it('Should not add a movie when it has no id', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       movie: {}
