@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator'
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb'
-import { async } from 'regenerator-runtime'
 
 describe('Unliking A Movie', () => {
   const addLikeButtonContainer = () => {
