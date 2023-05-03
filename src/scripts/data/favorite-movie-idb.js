@@ -21,9 +21,11 @@ const FavoriteMovieIdb = {
 
     return (await dbPromise).get(OBJECT_STORE_NAME, id)
   },
+
   async getAllMovies () {
     return (await dbPromise).getAll(OBJECT_STORE_NAME)
   },
+
   async putMovie (movie) {
     // eslint-disable-next-line no-prototype-builtins
     if (!movie.hasOwnProperty('id')) {
@@ -32,8 +34,13 @@ const FavoriteMovieIdb = {
 
     return (await dbPromise).put(OBJECT_STORE_NAME, movie)
   },
+
   async deleteMovie (id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id)
+  },
+
+  async searchMovies (query) {
+
   }
 }
 
