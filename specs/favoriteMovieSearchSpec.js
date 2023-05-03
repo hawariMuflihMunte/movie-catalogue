@@ -16,11 +16,13 @@ describe('Searching movies', () => {
   })
 
   it('Should be able to capture the query typed by the user', () => {
+    const presenter = new FavoriteMovieSearchPresenter()
+
     const queryElement = document.getElementById('query')
     queryElement.value = 'film a'
     queryElement.dispatchEvent(new Event('change'))
 
-    expect((new FavoriteMovieSearchPresenter()).userQuery)
+    expect(presenter.latestQuery)
       .toEqual('film a')
   })
 })
