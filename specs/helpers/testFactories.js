@@ -1,4 +1,4 @@
-import LikeButtonInitiator from '../../src/scripts/utils/like-button-initiator'
+import LikeButtonInitiator from '../../src/scripts/utils/like-button-presenter'
 
 const createLikeButtonPresenterWithMovie = async (movie) => {
   await LikeButtonInitiator.init({
