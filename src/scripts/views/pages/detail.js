@@ -1,7 +1,7 @@
 import UrlParser from '../../routes/url-parser'
 import TheMovieDbSource from '../../data/themoviedb-source'
 import { createMovieDetailTemplate } from '../templates/template-creator'
-import LikeButtonPresenter from '../../utils/like-button-initiator'
+import LikeButtonPresenter from '../../utils/like-button-presenter'
 import FavoriteMovieIdb from '../../data/favorite-movie-idb'
 
 const Detail = {
