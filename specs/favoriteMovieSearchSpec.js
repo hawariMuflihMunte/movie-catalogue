@@ -1,4 +1,7 @@
 /* eslint-disable no-undef */
+
+import FavoriteMovieSearchPresenter from '../src/scripts/views/pages/liked-movies/favorite-movie-search-presenter'
+
 describe('Searching movies', () => {
   beforeEach(() => {
     document.body.innerHTML = `
