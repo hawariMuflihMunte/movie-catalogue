@@ -56,10 +56,7 @@ describe('Liking A Movie', () => {
   })
 
   it('Should not add a movie when it has no id', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      movie: {}
-    })
+    await TestFactories.createLikeButtonPresenterWithMovie({})
 
     document.querySelector('#likeButton').dispatchEvent(new Event('click'))
     expect(await FavoriteMovieIdb.getAllMovies())
