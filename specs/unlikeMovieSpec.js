@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
-import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator'
-import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb'
 
 import * as TestFactories from './helpers/testFactories'
+import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb'
 
 describe('Unliking A Movie', () => {
   const addLikeButtonContainer = () => {
