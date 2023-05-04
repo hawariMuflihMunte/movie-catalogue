@@ -21,7 +21,12 @@ class FavoriteMovieSearchPresenter {
 
   _showFoundMovies (movies) {
     const html = movies.reduce(
-      (carry, movie) => carry.concat('<li class="movie"></li>')
+      (carry, movie) => carry.concat(`
+        <li class="movie">
+          <span class="movie__title">${movie.title}</span>
+        </li>
+      `),
+      ''
     )
     document.querySelector('.movies').innerHTML = html
   }
