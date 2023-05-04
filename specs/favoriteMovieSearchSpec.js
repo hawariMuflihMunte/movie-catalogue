@@ -4,6 +4,14 @@ import FavoriteMovieSearchPresenter from '../src/scripts/views/pages/liked-movie
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb'
 
 describe('Searching movies', () => {
+  let presenter
+
+  const searchMovies = (query) => {
+    const queryElement = document.getElementById('query')
+    queryElement.value = query
+    queryElement.dispatchEvent(new Event('change'))
+  }
+
   beforeEach(() => {
     document.body.innerHTML = `
       <div id="movie-search-container">
@@ -14,25 +22,20 @@ describe('Searching movies', () => {
         </div>
       </div>
     `
+
+    spyOn(FavoriteMovieIdb, 'searchMovies')
+    presenter = new FavoriteMovieSearchPresenter({ favoriteMovies: FavoriteMovieIdb })
   })
 
   it('Should be able to capture the query typed by the user', () => {
-    spyOn(FavoriteMovieIdb, 'searchMovies')
-    // eslint-disable-next-line no-unused-vars
-    const presenter = new FavoriteMovieSearchPresenter({ favoriteMovies: FavoriteMovieIdb })
-
-    const queryElement = document.getElementById('query')
-    queryElement.value = 'film a'
-    queryElement.dispatchEvent(new Event('change'))
+    searchMovies('film a')
 
     expect(presenter.latestQuery)
       .toEqual('film a')
   })
 
   it('Should ask the model to search for liked movies', () => {
-    spyOn(FavoriteMovieIdb, 'searchMovies')
-    // eslint-disable-next-line no-unused-vars
-    const presenter = new FavoriteMovieSearchPresenter({ favoriteMovies: FavoriteMovieIdb })
+    searchMovies('film a')
 
     const queryElement = document.getElementById('query')
     queryElement.value = 'film a'
