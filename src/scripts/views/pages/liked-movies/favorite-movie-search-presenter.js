@@ -19,6 +19,11 @@ class FavoriteMovieSearchPresenter {
     this._favoriteMovies.searcMovies(this.latestQuery)
   }
 
+  _showFoundMovies (movies) {
+    document.querySelector('.movies')
+      .innerHTML = '<li class="movie"></li>'
+  }
+
   get latestQuery () {
     return this._latestQuery
   }
