@@ -101,4 +101,15 @@ describe('Searching movies', () => {
     expect(movieTitles.item(1).textContent)
       .toEqual('Dua')
   })
+
+  it('Should show - for found movie without title', () => {
+    presenter._showFoundMovies([
+      {
+        id: 1
+      }
+    ])
+
+    expect(document.querySelectorAll('.movie__title').item(0).textContent)
+      .toEqual('-')
+  })
 })
