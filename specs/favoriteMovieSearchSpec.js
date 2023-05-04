@@ -18,6 +18,9 @@ describe('Searching movies', () => {
         <input id="query" type="text">
         <div class="movie-result-container">
           <ul class="movies">
+            <li class="movie">
+              <span class="movie__title">Film Satu</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -52,5 +55,13 @@ describe('Searching movies', () => {
 
     expect(FavoriteMovieIdb.searchMovies)
       .toHaveBeenCalledWith('film a')
+  })
+
+  it('Should show the found movies', () => {
+    presenter._showFoundMovies([{ id: 1, title: 'Film Satu' }])
+
+    const foundMovies = document.querySelectorAll('.movie')
+
+    expect(foundMovies.length).toEqual(1)
   })
 })
