@@ -23,7 +23,7 @@ class FavoriteMovieSearchPresenter {
     const html = movies.reduce(
       (carry, movie) => carry.concat(`
         <li class="movie">
-          <span class="movie__title">${movie.title}</span>
+          <span class="movie__title">${movie.title || '-'}</span>
         </li>
       `),
       ''
