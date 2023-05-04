@@ -20,8 +20,10 @@ class FavoriteMovieSearchPresenter {
   }
 
   _showFoundMovies (movies) {
-    document.querySelector('.movies')
-      .innerHTML = '<li class="movie"></li>'
+    const html = movies.reduce(
+      (carry, movie) => carry.concat('<li class="movie"></li>')
+    )
+    document.querySelector('.movies').innerHTML = html
   }
 
   get latestQuery () {
