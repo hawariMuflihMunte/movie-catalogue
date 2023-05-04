@@ -10,9 +10,13 @@ class FavoriteMovieSearchPresenter {
     this._queryElement = document.getElementById('query')
 
     this._queryElement.addEventListener('change', (event) => {
-      this._latestQuery = event.target.value
-      this._favoriteMovies.searchMovies(this._latestQuery)
+      this._searchMovies(event.target.value)
     })
+  }
+
+  _searchMovies (latestQuery) {
+    this._latestQuery = latestQuery
+    this._favoriteMovies.searcMovies(this.latestQuery)
   }
 
   get latestQuery () {
