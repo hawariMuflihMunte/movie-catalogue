@@ -16,7 +16,7 @@ class FavoriteMovieSearchPresenter {
 
   _searchMovies (latestQuery) {
     this._latestQuery = latestQuery
-    this._favoriteMovies.searcMovies(this.latestQuery)
+    this._favoriteMovies.searchMovies(this.latestQuery)
   }
 
   _showFoundMovies (movies) {
