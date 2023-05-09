@@ -54,7 +54,7 @@ describe('Searching movies', () => {
     it('Should ask the model to search for movies', () => {
       searchMovies('film a')
 
-      expect(FavoriteMovieIdb.searchMovies)
+      expect(favoriteMovies.searchMovies)
         .toHaveBeenCalledWith('film a')
     })
 
@@ -134,7 +134,7 @@ describe('Searching movies', () => {
           done()
         })
 
-      FavoriteMovieIdb.searchMovies.withArgs('film a')
+      favoriteMovies.searchMovies.withArgs('film a')
         .and
         .returnValues([
           { id: 111, title: 'film abc' },
@@ -163,6 +163,13 @@ describe('Searching movies', () => {
       searchMovies('\t')
       expect(presenter.latestQuery.length)
         .toEqual(0)
+    })
+
+    it('Should show all the favorite movies', () => {
+      searchMovies('    ')
+
+      expect(favoriteMovies.getAllMovies)
+        .toHaveBeenCalledTimes(1)
     })
   })
 })
