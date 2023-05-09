@@ -3,6 +3,9 @@
 import FavoriteMovieSearchPresenter from '../src/scripts/views/pages/liked-movies/favorite-movie-search-presenter'
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb'
 
+class FavoriteMovieSearchView {
+}
+
 describe('Searching movies', () => {
   let presenter
   let favoriteMovies
