@@ -15,7 +15,7 @@ class FavoriteMovieSearchPresenter {
   }
 
   async _searchMovies (latestQuery) {
-    this._latestQuery = latestQuery
+    this._latestQuery = latestQuery.trim()
 
     const foundMovies = await this._favoriteMovies.searchMovies(this._latestQuery)
 
