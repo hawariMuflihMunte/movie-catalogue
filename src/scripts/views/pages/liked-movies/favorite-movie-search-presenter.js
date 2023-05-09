@@ -17,12 +17,16 @@ class FavoriteMovieSearchPresenter {
   async _searchMovies (latestQuery) {
     this._latestQuery = latestQuery
 
-    const foundMovies = await this._favoriteMovies.searchMovies(this.latestQuery)
+    const foundMovies = await this._favoriteMovies.searchMovies(this._latestQuery)
 
     this._showFoundMovies(foundMovies)
   }
 
   _showFoundMovies (movies) {
+    if (!movies) {
+      return false
+    }
+
     console.log(movies)
     const html = movies.reduce(
       (carry, movie) => carry.concat(`
