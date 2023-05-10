@@ -11,6 +11,22 @@ class FavoriteMovieSearchView {
     `
   }
 
+  getFavoriteMovieTemplate () {
+    return `
+      <div class="content">
+        <h2 class="content__heading">Your Liked Movie</h2>
+        <div id="movies" class="movies"></div>
+      </div>
+    `
+  }
+
+  showFavoriteMovies (movies) {
+    document.getElementById('movies').innerHTML = '<div class="movie-item__not__found"></div>'
+
+    document.getElementById('movies')
+      .dispatchEvent(new Event('movies:updated'))
+  }
+
   runWhenUserIsSearching (callback) {
     document.getElementById('query')
       .addEventListener('change', (event) => {
