@@ -49,65 +49,22 @@ describe('Searching movies', () => {
         .toHaveBeenCalledWith('film a')
     })
 
-    it('Should show the found movies', () => {
-      presenter._showFoundMovies([
-        {
-          id: 1,
-          title: 'Film Satu'
-        }
-      ])
-      expect(document.querySelectorAll('.movie').length).toEqual(1)
+    it('Should show - when the movie returned does not contain a title', (done) => {
+      document.getElementById('movie-search-container').addEventListener('movies:searched:updated', () => {
+        const movieTitles = document.querySelectorAll('.movie__title')
+        expect(movieTitles.item(0).textContent)
+          .toEqual('-')
 
-      presenter._showFoundMovies([
-        {
-          id: 1,
-          title: 'Satu'
-        },
-        {
-          id: 2,
-          title: 'Dua'
-        }
-      ])
-      expect(document.querySelectorAll('.movie').length).toEqual(2)
-    })
+        done()
+      })
 
-    it('Should show the title of the found movies', () => {
-      presenter._showFoundMovies([
-        {
-          id: 1,
-          title: 'Satu'
-        }
-      ])
-      expect(document.querySelectorAll('.movie__title').item(0).textContent)
-        .toEqual('Satu')
+      favoriteMovies.searchMovies.withArgs('film a')
+        .and
+        .returnValues([
+          { id: 444 }
+        ])
 
-      presenter._showFoundMovies([
-        {
-          id: 1,
-          title: 'Satu'
-        },
-        {
-          id: 2,
-          title: 'Dua'
-        }
-      ])
-
-      const movieTitles = document.querySelectorAll('.movie__title')
-      expect(movieTitles.item(0).textContent)
-        .toEqual('Satu')
-      expect(movieTitles.item(1).textContent)
-        .toEqual('Dua')
-    })
-
-    it('Should show - for found movie without title', () => {
-      presenter._showFoundMovies([
-        {
-          id: 1
-        }
-      ])
-
-      expect(document.querySelectorAll('.movie__title').item(0).textContent)
-        .toEqual('-')
+      searchMovies('film a')
     })
 
     it('Should show the movies found by Favorite Movies', (done) => {
