@@ -1,5 +1,4 @@
 import FavoriteMovieIdb from '../../data/favorite-movie-idb'
-import { createMovieItemTemplate } from '../templates/template-creator'
 
 import FavoriteMovieSearchView from './liked-movies/favorite-movie-search-view'
 import FavoriteMovieSearchPresenter from './liked-movies/favorite-movie-search-presenter'
