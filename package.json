@@ -10,7 +10,8 @@
     "build-serve": "npm run build && npm run serve",
     "test": "karma start",
     "lint": "eslint .",
-    "lint-fix": "eslint --fix ."
+    "lint-fix": "eslint --fix .",
+    "e2e": "codeceptjs run --steps"
   },
   "repository": {
     "type": "git",
