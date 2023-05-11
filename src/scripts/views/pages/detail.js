@@ -1,7 +1,8 @@
 import UrlParser from '../../routes/url-parser'
 import TheMovieDbSource from '../../data/themoviedb-source'
 import { createMovieDetailTemplate } from '../templates/template-creator'
-import LikeButtonInitiator from '../../utils/like-button-initiator'
+import LikeButtonPresenter from '../../utils/like-button-presenter'
+import FavoriteMovieIdb from '../../data/favorite-movie-idb'
 
 const Detail = {
   async render () {
@@ -16,8 +17,9 @@ const Detail = {
     const movieContainer = document.querySelector('#movie')
     movieContainer.innerHTML = createMovieDetailTemplate(movie)
 
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteMovies: FavoriteMovieIdb,
       movie: {
         id: movie.id,
         title: movie.title,
