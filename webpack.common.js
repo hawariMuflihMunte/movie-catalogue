@@ -43,7 +43,7 @@ module.exports = {
     new Dotenv({
       path: path.resolve(__dirname, '.env'),
       systemvars: true,
-      sage: true
+      safe: true
     })
   ]
 }
